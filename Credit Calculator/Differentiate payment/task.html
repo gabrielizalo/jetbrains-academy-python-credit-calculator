@@ -20,11 +20,11 @@
 
 <p>Suppose you used to run your credit calculator via a command line like this:</p>
 
-<pre><code class="language-no-highlight">python credit_calc.py</code></pre>
+<pre><code class="language-no-highlight">python creditcalc.py</code></pre>
 
 <p>Using command-line arguments, you can run your program this way:</p>
 
-<pre><code class="language-no-highlight">python credit_calc.py --type=diff --principal=1000000 --periods=10 --interest=10</code></pre>
+<pre><code class="language-no-highlight">python creditcalc.py --type=diff --principal=1000000 --periods=10 --interest=10</code></pre>
 
 <p>In that case, your program can get different values without asking the user to input them. It can be useful when you are developing your program and trying to find a mistake, so you run the program again and again with the same parameters. Also, it's convenient if you made a mistake in a single parameter. You don't have to input all other values again.</p>
 
@@ -49,29 +49,29 @@
 <ul>
 	<li><code class="java">--type</code>, which indicates the type of payment: <code class="java">"annuity"</code> or <code class="java">"diff"</code> (differentiated). If <code class="java">--type</code> is specified neither as <code class="java">"annuity"</code> nor as <code class="java">"diff"</code>, or not specified at all, show the error message.
 
-	<pre><code class="language-no-highlight">&gt; python credit_calc.py --principal=1000000 --periods=60 --interest=10
+	<pre><code class="language-no-highlight">&gt; python creditcalc.py --principal=1000000 --periods=60 --interest=10
 Incorrect parameters</code></pre>
 	</li>
 	<li><code class="java">--payment</code>, which refers to the monthly payment. For <code class="java">--type=diff</code>, the payment is different each month, so we cannot calculate a number of periods or the principal, therefore, its combination with <code class="java">--payment</code> is invalid, too:
-	<pre><code class="language-no-highlight">&gt; python credit_calc.py --type=diff --principal=1000000 --interest=10 --payment=100000
+	<pre><code class="language-no-highlight">&gt; python creditcalc.py --type=diff --principal=1000000 --interest=10 --payment=100000
 Incorrect parameters</code></pre>
 	</li>
 	<li><code class="java">--principal</code> is used for calculating both types of payment. You can get its value knowing the interest, the annuity payment, and the number of periods.</li>
 	<li><code class="java">--periods</code> parameter denotes the number of months and/or years needed to repay the credit. It's calculated based on the interest, annuity payment, and the principal.</li>
 	<li><code class="java">--interest</code> is specified without the percentage sign. Note that it may accept a floating-point value. Our credit calculator can't calculate the interest, so these parameters are incorrect:
-	<pre><code class="language-no-highlight">&gt; python credit_calc.py --type=annuity --principal=100000 --payment=10400 --periods=8
+	<pre><code class="language-no-highlight">&gt; python creditcalc.py --type=annuity --principal=100000 --payment=10400 --periods=8
 Incorrect parameters</code></pre>
 	</li>
 </ul>
 
 <p>You might have noticed that for differentiated payments you need 4 out of 5 parameters (excluding payment), and the same is true for annuity payments (missing either a number of periods, the payment, or the principal). Thus, when less than four parameters are given, you should display the error message:</p>
 
-<pre><code class="language-no-highlight">&gt; python credit_calc.py --type=annuity --principal=1000000 --payment=104000
+<pre><code class="language-no-highlight">&gt; python creditcalc.py --type=annuity --principal=1000000 --payment=104000
 Incorrect parameters</code></pre>
 
 <p>Another case when you should output this message is with negative values. We can't work with these!</p>
 
-<pre><code class="language-no-highlight">&gt; python credit_calc.py --type=diff --principal=30000 --periods=-14 --interest=10
+<pre><code class="language-no-highlight">&gt; python creditcalc.py --type=diff --principal=30000 --periods=-14 --interest=10
 Incorrect parameters</code></pre>
 
 <p>Finally, don't forget to compute the value of overpayment, and you'll have your real functional credit calculator!</p>
@@ -82,7 +82,7 @@ Incorrect parameters</code></pre>
 
 <p><strong>Example 1: </strong><em>calculating differentiated payments</em></p>
 
-<pre><code class="language-no-highlight">&gt; python credit_calc.py --type=diff --principal=1000000 --periods=10 --interest=10
+<pre><code class="language-no-highlight">&gt; python creditcalc.py --type=diff --principal=1000000 --periods=10 --interest=10
 Month 1: paid out 108334
 Month 2: paid out 107500
 Month 3: paid out 106667
@@ -124,18 +124,18 @@ Overpayment = 45837</code></pre>
 
 <p><strong>Example 2: </strong><em>finding the annuity payment for the 60-month (or 5-year) credit loan with the principal 1,000,000 and a 10% interest</em></p>
 
-<pre><code class="language-no-highlight">&gt; python credit_calc.py --type=annuity --principal=1000000 --periods=60 --interest=10
+<pre><code class="language-no-highlight">&gt; python creditcalc.py --type=annuity --principal=1000000 --periods=60 --interest=10
 Your annuity payment = 21248!
 Overpayment = 274880</code></pre>
 
 <p><strong>Example 3: </strong><em>less than four arguments are given</em></p>
 
-<pre><code class="language-no-highlight">&gt; python credit_calc.py --type=diff --principal=1000000 --payment=104000
+<pre><code class="language-no-highlight">&gt; python creditcalc.py --type=diff --principal=1000000 --payment=104000
 Incorrect parameters.</code></pre>
 
 <p><strong>Example 4: </strong><em>calculating differentiated payments given the principal 500,000, the period of 8 months, and an interest rate of 7.8%</em></p>
 
-<pre><code class="language-no-highlight">&gt; python credit_calc.py --type=diff --principal=500000 --periods=8 --interest=7.8
+<pre><code class="language-no-highlight">&gt; python creditcalc.py --type=diff --principal=500000 --periods=8 --interest=7.8
 Month 1: paid out 65750
 Month 2: paid out 65344
 Month 3: paid out 64938
@@ -149,12 +149,12 @@ Overpayment = 14628</code></pre>
 
 <p><strong>Example 5: </strong><em>calculating the principal for an individual paying 8,722 per month for 120 months (10 years) with an interest rate of 5.6%</em></p>
 
-<pre><code class="language-no-highlight">&gt; python credit_calc.py --type=annuity --payment=8722 --periods=120 --interest=5.6
+<pre><code class="language-no-highlight">&gt; python creditcalc.py --type=annuity --payment=8722 --periods=120 --interest=5.6
 Your credit principal = 800018!
 Overpayment = 246622</code></pre>
 
 <p><strong>Example 6: </strong><em>figuring out how much time an individual needs to repay the credit loan with the principal 500,000, the monthly payment of 23,000 at a 7.8% interest rate</em></p>
 
-<pre><code class="language-no-highlight">&gt; python credit_calc.py --type=annuity --principal=500000 --payment=23000 --interest=7.8
+<pre><code class="language-no-highlight">&gt; python creditcalc.py --type=annuity --principal=500000 --payment=23000 --interest=7.8
 You need 2 years to repay this credit!
 Overpayment = 52000</code></pre>
