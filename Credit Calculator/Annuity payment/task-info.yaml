@@ -117,24 +117,9 @@ files:
         CreditCalcTest('creditcalc.creditcalc').run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/projects/90/stages/502/implement
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Exception in test #1
-
-    Traceback (most recent call last):
-      File "creditcalc.py", line 46, in <module>
-        begin()
-      File "creditcalc.py", line 14, in begin
-        credit_main = int(input())
-    ValueError: invalid literal for int() with base 10: 'a'
-
-    Please find below the output of your program during this failed test.
-    Note that the '>' character indicates the beginning of the input line.
-
-    ---
-
-    Enter the credit principal:
-    > a
-  time: Thu, 13 Aug 2020 12:58:24 UTC
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/90/stages/502/implement">JetBrains
+    Academy</a>
+  time: Wed, 19 Aug 2020 00:15:19 UTC
 record: -1

@@ -26,7 +26,7 @@ def calculate_months():
     print('Enter monthly payment:')
     payment = int(input())
     print('Enter the credit interest:')
-    interest = int(input())
+    interest = float(input())
 
     # Calculations
     nominal_interest = (interest / 100) / 12
@@ -68,19 +68,40 @@ def calculate_payment():
     print('Enter the number of periods:')
     months = int(input())
     print('Enter the credit interest:')
-    interest = int(input())
+    interest = float(input())
 
     # Calculations
     nominal_interest = (interest / 100) / 12
     annuity_payment_dividend = credit_main * nominal_interest * (math.pow(1 + nominal_interest, months))
     annuity_payment_divisor = (math.pow(1 + nominal_interest, months) - 1)
     annuity_payment = annuity_payment_dividend / annuity_payment_divisor
+
+    # Finally
     friendly_annuity_payment = math.ceil(annuity_payment)
     print(print(f'Your annuity payment = {friendly_annuity_payment}!'))
 
 
 def calculate_principal():
-    print('Hello')
+    global credit_main
+
+    # User data
+    print('Enter the annuity payment:')
+    annuity_payment = float(input())
+    print('Enter the count of periods:')
+    periods = int(input())
+    print('Enter the credit interest:')
+    interest = float(input())
+
+    # # Calculations
+    nominal_interest = (interest / 100) / 12
+    credit_principal_dividend = annuity_payment
+    credit_principal_divisor_1 = nominal_interest * math.pow(1 + nominal_interest, periods)
+    credit_principal_divisor_2 = math.pow(1 + nominal_interest, periods) - 1
+    credit_principal = credit_principal_dividend / (credit_principal_divisor_1 / credit_principal_divisor_2)
+
+    # Finally
+    friendly_credit_principal = int(credit_principal)
+    print(print(f'Your credit principal = {friendly_credit_principal}!'))
 
 
 # Main
