@@ -41,14 +41,14 @@ def calculate_months():
 
     if years > 1:
         years_user = f'{years} years'
-    elif years > 0:
+    elif years == 1:
         years_user = f'{years} year'
     if months > 1:
         months_user = f'{months} months'
-    elif months > 0:
+    elif months == 1:
         years_user = f'{months} month'
 
-    if len(years_user) > 0 and len(months_user):
+    if len(years_user) > 0 and len(months_user) > 0:
         time = f'{years_user} and {months_user}'
     elif len(years_user) > 0:
         time = f'{years_user}'
@@ -61,16 +61,22 @@ def calculate_months():
 
 def calculate_payment():
     global credit_main
+
+    # User data
     print('Enter the credit principal:')
     credit_main = int(input())
-    print('Enter count of months:')
+    print('Enter the number of periods:')
     months = int(input())
-    payment = math.ceil(credit_main / months)
-    str_payment = f'Your monthly payment = {payment}'
-    if payment * months != credit_main:
-        difference = payment + (credit_main - (payment * months))
-        str_payment += f' with last month payment = {difference}.'
-    print(str_payment)
+    print('Enter the credit interest:')
+    interest = int(input())
+
+    # Calculations
+    nominal_interest = (interest / 100) / 12
+    annuity_payment_dividend = credit_main * nominal_interest * (math.pow(1 + nominal_interest, months))
+    annuity_payment_divisor = (math.pow(1 + nominal_interest, months) - 1)
+    annuity_payment = annuity_payment_dividend / annuity_payment_divisor
+    friendly_annuity_payment = math.ceil(annuity_payment)
+    print(print(f'Your annuity payment = {friendly_annuity_payment}!'))
 
 
 def calculate_principal():
