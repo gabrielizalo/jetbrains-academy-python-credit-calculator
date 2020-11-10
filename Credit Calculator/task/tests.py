@@ -7,7 +7,7 @@ CheckResult.correct = lambda: CheckResult(True, '')
 CheckResult.wrong = lambda feedback: CheckResult(False, feedback)
 
 
-class CreditCalcTest(StageTest):
+class LoanCalcTest(StageTest):
     def generate(self):
         return [
             TestCase(
@@ -194,9 +194,9 @@ class CreditCalcTest(StageTest):
                             )
                         else:
                             output = (
-                                'Looks like your credit principal '
+                                'Looks like your loan principal '
                                 'calculations aren\'t working properly. '
-                                'Correct credit principal and overpayment are '
+                                'Correct loan principal and overpayment are '
                                 '[ {0}, {1} ]'
                                 ', but you output: {2}'
                             )
@@ -237,4 +237,4 @@ class CreditCalcTest(StageTest):
 
 
 if __name__ == '__main__':
-    CreditCalcTest('creditcalc.creditcalc').run_tests()
+    LoanCalcTest('creditcalc.creditcalc').run_tests()
