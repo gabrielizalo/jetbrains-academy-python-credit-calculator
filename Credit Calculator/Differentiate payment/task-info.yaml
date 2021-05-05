@@ -257,5 +257,29 @@ files:
         LoanCalcTest('creditcalc.creditcalc').run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/projects/90/stages/503/implement
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Exception in test #1
+
+    Probably your program run out of input (tried to read more than expected)
+
+    Traceback (most recent call last):
+      File "creditcalc.py", line 108, in <module>
+        begin()
+      File "creditcalc.py", line 17, in begin
+        calculate_type = input()
+    EOFError: EOF when reading a line
+
+    Please find below the output of your program during this failed test.
+    Note that the '>' character indicates the beginning of the input line.
+
+    ---
+
+    What do you want to calculate?
+    type "n" - for count of months,
+    type "a" - for the annuity monthly payment:
+    type "p" - for the credit principal:
+    >
+  time: Fri, 22 Jan 2021 00:37:34 UTC
 record: -1
