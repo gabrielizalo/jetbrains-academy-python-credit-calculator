@@ -1,12 +1,11 @@
 type: hyperskill
 title: Credit Calculator
 language: English
-summary: "Finance is an important part of the life of any people. Sometimes you think\
-  \ about\r\ngetting additional income and want to open a deposit account. And sometimes\
-  \ you need additional money right now and want to take a credit or mortgage. Anyway,\
-  \ you may want to calculate different financial indicators to make a decision. Let’\
-  s make such an instrument that can help us.<br/><br/>Learn more at <a href=\"https://hyperskill.org\"\
-  >https://hyperskill.org/projects/90</a>"
+summary: Personal finances are an important part of life. Sometimes you need some
+  extra money and decide to take a loan, or you want to buy a house using a mortgage.
+  To make an informed decision, you need to be able to calculate different financial
+  parameters. Let’s make a program that can help us with that!<br/><br/>Learn more
+  at <a href="https://hyperskill.org">https://hyperskill.org/projects/90</a>
 programming_language: Python
 content:
 - Credit Calculator
